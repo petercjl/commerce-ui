@@ -1,0 +1,15 @@
+{
+  "pack_format": "commerce-ui-template-pack@1",
+  "id": "visual-facet-review",
+  "contract": "visual-facet-review@1.0",
+  "version": "1.0.0",
+  "title": "视觉商品分面分类审阅",
+  "description": "按独立分面和标签分组的纯图片审阅工作台；同一图片可出现在多个分面，图片自包含。",
+  "files": {
+    "schema": "schema.json",
+    "template": "template.html",
+    "renderer": "renderer.py",
+    "validator": "validator.py",
+    "fixture": "fixture.json"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "portable-skill-capabilities",
+  "schema_version": "1.0.0",
+  "skill": "compact-commerce-ui",
+  "target_platforms": [
+    "codex",
+    "sealseek"
+  ],
+  "capabilities": [
+    {
+      "id": "report.html.render",
+      "purpose": "Render and validate a compatible ViewModel using versioned reusable templates",
+      "required": true,
+      "required_features": [
+        "versioned_contract",
+        "live_schema",
+        "structured_conclusions",
+        "responsive_navigation",
+        "image_embedding",
+        "new_output_only",
+        "deterministic_validation"
+      ],
+      "input_fields": [
+        "viewmodel_json",
+        "template_id",
+        "new_html_path"
+      ],
+      "output_fields": [
+        "html_path",
+        "contract",
+        "template_version",
+        "validation"
+      ],
+      "side_effects": {
+        "external_mutation": false,
+        "may_cost_money": false,
+        "authorization": "Read selected local evidence; create new local reports. Custom executable templates require explicit trust."
+      },
+      "errors": [
+        "RUNTIME_UNAVAILABLE",
+        "CONTRACT_UNSUPPORTED",
+        "OUTPUT_CONTRACT_FAILED"
+      ]
+    },
+    {
+      "id": "browser.report.inspect",
+      "purpose": "Inspect desktop/mobile reports and relevant interactions in the host browser",
+      "required": true,
+      "required_features": [
+        "open_local_report",
+        "desktop_mobile_viewports",
+        "interaction_inspection"
+      ],
+      "input_fields": [
+        "html_path",
+        "viewports",
+        "controls"
+      ],
+      "output_fields": [
+        "inspection_results",
+        "limitations"
+      ],
+      "side_effects": {
+        "external_mutation": false,
+        "may_cost_money": false,
+        "authorization": "Inspect task-owned local reports through advertised host browser tools."
+      },
+      "errors": [
+        "CAPABILITY_UNAVAILABLE",
+        "FEATURE_UNSUPPORTED"
+      ]
+    }
+  ]
+}

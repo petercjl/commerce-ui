@@ -1,0 +1,15 @@
+{
+  "pack_format": "commerce-ui-template-pack@1",
+  "id": "product-tvc-script-report",
+  "contract": "product-tvc-script-report@1.0",
+  "version": "1.0.0",
+  "title": "产品 TVC 脚本报告",
+  "description": "用于审阅 TVC 时长结构、镜头内容、运镜、声音、参考图片和资产需求的图文报告。",
+  "files": {
+    "schema": "schema.json",
+    "template": "template.html",
+    "renderer": "renderer.py",
+    "validator": "validator.py",
+    "fixture": "fixture.json"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "产品 TVC 多方案分镜报告 ViewModel",
+  "type": "object",
+  "required": ["contract", "meta", "views"],
+  "properties": {
+    "contract": {"const": "product-tvc-script-report@2.0"},
+    "meta": {"type": "object", "required": ["title", "revision", "status"], "properties": {"title": {"type": "string", "minLength": 1}, "subtitle": {"type": "string"}, "footer": {"type": "string"}, "revision": {"type": "integer", "minimum": 1}, "status": {"enum": ["blocked", "ready_for_assets", "superseded"]}, "source_payload_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": true},
+    "shell": {"type": "object", "properties": {"brand_mark": {"type": "string"}, "brand_title": {"type": "string"}, "brand_subtitle": {"type": "string"}, "nav_label": {"type": "string"}, "status": {"type": "array", "items": {"type": "string"}}, "search": {"type": "boolean"}, "search_placeholder": {"type": "string"}}, "additionalProperties": false},
+    "assets": {"type": "object", "additionalProperties": {"$ref": "#/$defs/asset"}},
+    "views": {"type": "array", "minItems": 3, "items": {"$ref": "#/$defs/view"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "asset": {"type": "object", "required": ["path"], "properties": {"path": {"type": "string", "minLength": 1}, "alt": {"type": "string"}, "caption": {"type": "string"}, "role": {"type": "string"}}, "additionalProperties": true},
+    "view": {"type": "object", "required": ["id", "label", "title", "blocks"], "properties": {"id": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"}, "label": {"type": "string"}, "title": {"type": "string"}, "subtitle": {"type": "string"}, "blocks": {"type": "array", "items": {"$ref": "#/$defs/block"}}}, "additionalProperties": false},
+    "block": {
+      "type": "object", "required": ["type"],
+      "properties": {
+        "type": {"enum": ["plan_compare", "plan_intro", "storyboards", "key_values", "audio_edit", "callout", "checklist"]},
+        "title": {"type": "string"}, "text": {"type": "string"}, "eyebrow": {"type": "string"}, "tone": {"type": "string"}, "badges": {"type": "array", "items": {"type": "string"}}, "items": {"type": "array", "items": {"type": "object"}}
+      },
+      "additionalProperties": true
+    }
+  }
+}

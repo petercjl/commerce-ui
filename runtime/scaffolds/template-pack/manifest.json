@@ -1,0 +1,15 @@
+{
+  "pack_format": "commerce-ui-template-pack@1",
+  "id": "__PACK_ID__",
+  "contract": "__CONTRACT__",
+  "version": "0.1.0",
+  "title": "__PACK_ID__",
+  "description": "Agent-created Commerce UI template pack. Replace this description before installation.",
+  "files": {
+    "schema": "schema.json",
+    "template": "template.html",
+    "renderer": "renderer.py",
+    "validator": "validator.py",
+    "fixture": "fixture.json"
+  }
+}

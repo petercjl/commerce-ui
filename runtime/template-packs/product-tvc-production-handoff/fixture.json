@@ -1,0 +1,19 @@
+{
+  "contract": "product-tvc-script-report@3.0",
+  "meta": {"title": "示例产品｜TVC 生成交接", "subtitle": "按分镜组织资产图与短视频输入", "footer": "示例报告"},
+  "shell": {"brand_mark": "镜", "brand_title": "TVC 生成交接", "brand_subtitle": "资产图 → 短视频", "nav_label": "报告视图", "status": ["方案：1 个"], "search": true, "search_placeholder": "搜索"},
+  "assets": {},
+  "views": [
+    {"id": "overview", "label": "方案总览", "title": "1 个 TVC 方向", "blocks": [
+      {"type": "plan_compare", "items": [{"number": "方案 1", "title": "日常焕新", "rank": "上游排序 1", "proposition": "让普通饮水更有期待", "hook": "产品登场", "duration": "30 秒", "storyboard_count": 1, "fixed_asset_count": 1, "asset_count": 2, "recommended": true}]},
+      {"type": "key_values", "items": [{"label": "方案数", "value": "1"}]},
+      {"type": "callout", "title": "使用方式", "text": "先生成资产图，再生成短视频。"}
+    ]},
+    {"id": "plan-1", "label": "方案 1", "title": "日常焕新", "blocks": [
+      {"type": "plan_intro", "eyebrow": "优先方向", "title": "让普通饮水更有期待", "text": "产品登场", "badges": ["30 秒", "9:16"]},
+      {"type": "fixed_asset_handoff", "title": "第一部分：生成方案固定资产", "text": "先一次性生成跨分镜资产。", "items": [{"asset_id": "F-01", "label": "风格参考图", "asset_type": "style_reference", "video_use": "全片风格统一", "frame_moment": "不对应具体时刻", "aspect_ratio": "9:16", "references": [], "image_intent": "明亮自然的生活方式风格参考。"}]},
+      {"type": "storyboard_handoffs", "items": [{"number": "分镜 01", "time": "0–8 秒", "title": "产品登场", "new_assets": [{"asset_id": "A-01", "label": "首帧", "asset_type": "first_frame", "video_use": "视频首帧", "frame_moment": "动作开始前", "aspect_ratio": "9:16", "references": [], "image_intent": "桌面场景中的产品首帧。"}], "reused_assets": [], "video": {"references": [{"kind": "generated", "asset_id": "A-01", "label": "首帧", "role": "首帧", "source_storyboard": "分镜 01"}], "video_intent": "镜头缓慢推进，人物拿起产品。", "duration": "8 秒", "aspect_ratio": "9:16", "generate_audio": true, "audio_intent": "轻微环境声。"}}]}
+    ]},
+    {"id": "handoff", "label": "交接检查", "title": "生成前检查", "blocks": [{"type": "checklist", "items": [{"label": "资产唯一", "status": "positive", "note": "只定义一次。"}]}]}
+  ]
+}

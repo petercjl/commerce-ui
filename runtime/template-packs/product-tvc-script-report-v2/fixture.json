@@ -1,0 +1,11 @@
+{
+  "contract": "product-tvc-script-report@2.0",
+  "meta": {"title": "示例产品｜TVC 多方案脚本", "subtitle": "分镜、提示词、参考图与资产需求", "footer": "示例报告", "revision": 1, "status": "ready_for_assets", "source_payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+  "shell": {"brand_mark": "镜", "brand_title": "TVC 多方案脚本", "brand_subtitle": "方向 · 分镜 · 参考图", "nav_label": "报告视图", "status": ["方案：2 个", "每案：30 秒"], "search": true, "search_placeholder": "搜索分镜"},
+  "assets": {},
+  "views": [
+    {"id": "overview", "label": "方案总览", "title": "2 个 TVC 方向", "blocks": [{"type": "plan_compare", "items": [{"number": "方案 1", "title": "方向一", "rank": "上游排序 1", "proposition": "核心主张", "hook": "记忆钩子", "duration": "30 秒", "storyboard_count": 4, "recommended": true}]}]},
+    {"id": "plan-1", "label": "方案 1", "title": "方向一", "blocks": [{"type": "plan_intro", "eyebrow": "推荐方向", "title": "核心主张", "text": "记忆钩子", "badges": ["30 秒", "4 个分镜"]}, {"type": "storyboards", "items": [{"number": "分镜 01", "time": "0–7.5 秒", "duration": "7.5 秒", "title": "开场", "beat": "钩子", "visual": "建立场景并完成一个可控动作。", "camera": "中景，缓慢推进。", "prompt": "自然完成动作，镜头缓慢推进。", "reference_lock": "产品身份遵循参考图。", "negative_limits": "不要增加产品部件。", "audio": "环境声。", "on_screen_text": "无", "reference_images": [], "missing_assets": [], "continuity": "进入：初始；结束：动作完成", "claim_status": "无广告主张"}]}]},
+    {"id": "handoff", "label": "交接检查", "title": "交接检查", "blocks": [{"type": "checklist", "items": [{"label": "时间连续", "status": "positive", "note": "通过"}]}]}
+  ]
+}

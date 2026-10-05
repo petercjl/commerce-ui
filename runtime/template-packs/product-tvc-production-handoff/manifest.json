@@ -1,0 +1,15 @@
+{
+  "pack_format": "commerce-ui-template-pack@1",
+  "id": "product-tvc-production-handoff",
+  "contract": "product-tvc-script-report@3.0",
+  "version": "1.1.0",
+  "title": "产品 TVC 生成交接",
+  "description": "先呈现方案级固定资产，再按分镜呈现专用资产与短视频输入，并清晰表达资产复用。",
+  "files": {
+    "schema": "schema.json",
+    "template": "template.html",
+    "renderer": "renderer.py",
+    "validator": "validator.py",
+    "fixture": "fixture.json"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "pack_format": "commerce-ui-template-pack@1",
+  "id": "product-tvc-analysis-report",
+  "contract": "product-tvc-analysis-report@1.0",
+  "version": "1.2.0",
+  "title": "产品 TVC 分析报告",
+  "description": "以图片、产品证据、项目定义和每个创意方向的完整剧本为核心，支持按剧本比较选择的商品短片报告。",
+  "files": {
+    "schema": "schema.json",
+    "template": "template.html",
+    "renderer": "renderer.py",
+    "validator": "validator.py",
+    "fixture": "fixture.json"
+  }
+}

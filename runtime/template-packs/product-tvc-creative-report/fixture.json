@@ -1,0 +1,105 @@
+{
+  "contract": "product-tvc-analysis-report@2.0",
+  "meta": {
+    "title": "随行杯产品 TVC 策略分析",
+    "subtitle": "模板包代表性自测案例",
+    "footer": "产品 TVC 分析报告 · 模板自测",
+    "revision": 1,
+    "status": "ready_for_creative_review",
+    "generated_at": "2026-08-11T10:00:00+08:00",
+    "source_payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "shell": {
+    "brand_mark": "TV",
+    "brand_title": "TVC 策略分析",
+    "brand_subtitle": "产品 · 人群 · 场景",
+    "nav_label": "报告视图",
+    "status": ["状态：多份创意成稿已完成", "修订版 1", "2 份完整成稿"],
+    "search": true,
+    "search_placeholder": "搜索人群、场景、卖点"
+  },
+  "assets": {
+    "asset-main": {
+      "path": "fixture-product.svg",
+      "alt": "随行杯产品示意图",
+      "role": "产品身份",
+      "caption": "产品身份与整体比例参考",
+      "semantic_label": "主产品完整外观",
+      "subject_id": "variant-main",
+      "evidence_level": "direct"
+    }
+  },
+  "navigation_groups": [{"group_id": "project-scripts", "label": "项目与剧本", "after_view_id": "directions"}],
+  "views": [
+    {
+      "id": "overview",
+      "label": "产品结论",
+      "title": "先看结论",
+      "subtitle": "产品、人群、场景与推荐方向",
+      "blocks": [
+        {
+          "type": "hero",
+          "eyebrow": "主产品判断",
+          "title": "大容量随行杯",
+          "subtitle": "把多种饮用需求压缩成一只全天候随行杯",
+          "asset_id": "asset-main",
+          "badges": ["功能消费品", "主推白色款", "可进入脚本"],
+          "recommendation": {
+            "label": "推荐 TVC 方向",
+            "title": "一杯接住一天的变化",
+            "reason": "产品功能能够通过连续动作和场景切换被直接看见。"
+          }
+        },
+        {"type": "callout", "tone": "warning", "title": "广告边界", "text": "来源中的定量效果需核实后才能成为强口播。"}
+      ]
+    },
+    {
+      "id": "evidence",
+      "label": "产品证据",
+      "title": "产品事实与价值翻译",
+      "subtitle": "区分可见事实、来源宣称和策略推断",
+      "blocks": [
+        {"type": "gallery", "title": "核心素材", "asset_ids": ["asset-main"]},
+        {"type": "fact_cards", "title": "事实账本", "items": [
+          {"id": "事实 1", "statement": "来源图标示为大容量随行杯。", "evidence_type": "来源主张", "creative_use": "可直接表达", "confidence": "0.96"}
+        ]},
+        {"type": "value_map", "title": "价值链", "items": [
+          {"feature": "大容量", "advantage": "减少补水次数", "benefit": "长时间工作时不必频繁离开座位", "emotion": "节奏不被打断", "proof": "用完整工作时段和液体变化表现"}
+        ]}
+      ]
+    },
+    {
+      "id": "directions",
+      "label": "创意方向",
+      "title": "谁会需要，广告怎么讲",
+      "subtitle": "从任务和场景进入创意方向",
+      "blocks": [
+        {"type": "audiences", "title": "目标人群", "items": [
+          {"label": "长时间伏案工作者", "basis": "mixed", "need": "减少补水中断", "pain": "饮品需求变化、桌面空间有限", "desire": "一只杯子从早用到晚", "score": 86}
+        ]},
+        {"type": "scenes", "title": "优先场景", "items": [
+          {"title": "下午连续工作", "time": "工作日下午", "place": "办公桌", "tension": "不同饮品和补水需求打断节奏", "action": "人物连续切换饮用方式", "result": "保持专注和桌面秩序", "score": 88}
+        ]},
+        {"type": "directions", "title": "TVC 方向比较", "items": [
+          {"rank": 1, "title": "一杯接住一天的变化", "type": "使用场景", "proposition": "一只杯子适应一天中不断变化的饮用需求", "audience": "长时间工作者", "scene": "办公桌的一天", "hook": "液体、光线和动作随时间改变，杯子始终在场", "reason": "事实支持强、可视化明确、下游生成稳定", "score": 90, "selected": true}
+        ]}
+      ]
+    },
+    {
+      "id": "project-works",
+      "label": "项目与剧本总览",
+      "parent_group_id": "project-scripts",
+      "title": "项目定义与创意成稿",
+      "subtitle": "共同底座、路线和成稿比较",
+      "blocks": [{"type": "callout", "tone": "positive", "title": "推荐创意成稿", "text": "两份完整成稿比较后推荐第一份。"}]
+    },
+    {
+      "id": "creative-work-01",
+      "label": "剧本 01｜一杯接住一天",
+      "parent_group_id": "project-scripts",
+      "title": "一杯接住一天",
+      "subtitle": "TVC 创意 Treatment",
+      "blocks": [{"type": "text", "paragraphs": ["开场建立补水打断。", "产品让一天的饮用变化被一只杯接住。", "品牌在新状态中完成收束。"]}]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "portable-skill-adapter",
+  "schema_version": "1.0.0",
+  "platform": "sealseek",
+  "mappings": [
+    {
+      "capability_id": "report.html.render",
+      "status": "implemented",
+      "implementation": {
+        "kind": "stable-cli",
+        "discovery": "Resolve commerce-ui from PATH or the owning shell's component run html-report; inspect version, capabilities, doctor, templates and schema."
+      },
+      "features": [
+        "versioned_contract",
+        "live_schema",
+        "structured_conclusions",
+        "responsive_navigation",
+        "image_embedding",
+        "new_output_only",
+        "deterministic_validation"
+      ],
+      "permissions": [
+        "read selected evidence",
+        "create new output files"
+      ],
+      "normalization": "Return real output paths, versions and deterministic validation; preserve nonzero CLI failures."
+    },
+    {
+      "capability_id": "browser.report.inspect",
+      "status": "implemented",
+      "implementation": {
+        "kind": "agent-native",
+        "discovery": "Use the host's advertised browser/file-preview capabilities to open the local report and inspect requested viewports and interactions; report feature gaps explicitly."
+      },
+      "features": [
+        "open_local_report",
+        "desktop_mobile_viewports",
+        "interaction_inspection"
+      ],
+      "permissions": [
+        "inspect task report"
+      ],
+      "normalization": "Record actual observations separately from deterministic checks. An unavailable local-file browser ends visual QA with CAPABILITY_UNAVAILABLE."
+    }
+  ]
+}

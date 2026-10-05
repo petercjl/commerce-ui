@@ -1,0 +1,9 @@
+{
+  "pack_format": "commerce-ui-template-pack@1",
+  "id": "product-tvc-script-report-v2",
+  "contract": "product-tvc-script-report@2.0",
+  "version": "2.0.0",
+  "title": "产品 TVC 多方案分镜报告",
+  "description": "按创意方向展示多套 TVC 方案，并在每个分镜中合并脚本、提示词、实际参考图和待生成资产。",
+  "files": {"schema": "schema.json", "template": "template.html", "renderer": "renderer.py", "validator": "validator.py", "fixture": "fixture.json"}
+}

@@ -1,0 +1,15 @@
+{
+  "pack_format": "commerce-ui-template-pack@1",
+  "id": "product-tvc-creative-report",
+  "contract": "product-tvc-analysis-report@2.0",
+  "version": "2.0.0",
+  "title": "商品短片创意与剧本报告",
+  "description": "支持创意候选、项目与剧本父子菜单，以及每份 TVC Treatment 或文学剧本独立页面的商品短片报告。",
+  "files": {
+    "schema": "schema.json",
+    "template": "template.html",
+    "renderer": "renderer.py",
+    "validator": "validator.py",
+    "fixture": "fixture.json"
+  }
+}

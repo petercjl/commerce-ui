@@ -1,0 +1,80 @@
+{
+  "contract": "compact-workbench@1.0",
+  "meta": {
+    "title": "CLI 合约回归报告",
+    "subtitle": "compact-workbench@1.0",
+    "footer": "commerce-ui deterministic fixture",
+    "external_images": "allow_https"
+  },
+  "shell": {
+    "brand_mark": "CI",
+    "brand_title": "经营分析台",
+    "brand_subtitle": "Commerce Insight",
+    "status": ["状态：回归测试", "3 个独立视图"],
+    "search": true,
+    "sidebar_tabs": true,
+    "reading_path": [
+      {"view_id": "overview", "label": "先看结论"},
+      {"view_id": "details", "tab_id": "sample-products", "label": "再看证据"}
+    ],
+    "date_range": "2026-08-03 — 2026-08-09"
+  },
+  "views": [
+    {
+      "id": "overview",
+      "label": "总览",
+      "eyebrow": "决策总览",
+      "title": "CLI 合约回归报告",
+      "subtitle": "验证渲染、路由、响应式与打印",
+      "badge": {"text": "测试中", "tone": "info"},
+      "blocks": [
+        {"type": "conclusion", "title": "核心结论", "items": [
+          {"label": "主要判断", "tone": "positive", "segments": [
+            {"text": "优先检查", "emphasis": "normal"},
+            {"text": "可验证的机会", "emphasis": "strong", "tone": "positive"}
+          ], "note": "证据和计算放在后续模块。"},
+          {"label": "判断边界", "tone": "warning", "segments": [
+            {"text": "保留", "emphasis": "normal"},
+            {"text": "待验证条件", "emphasis": "italic", "tone": "warning"}
+          ]}
+        ]},
+        {"type": "alert", "title": "验证目标：", "text": "一级菜单必须对应互斥视图。", "tone": "warning"},
+        {"type": "metrics", "columns": 3, "items": [
+          {"label": "成交金额", "value": "¥3,600", "note": "归因成交", "badge": "+12%", "tone": "positive"},
+          {"label": "花费", "value": "¥1,200", "note": "实际消耗"},
+          {"label": "ROAS", "value": "3.00×", "note": "成交 / 花费"}
+        ]},
+        {"type": "grid", "columns": 2, "items": [
+          {"type": "card", "title": "结论", "meta": "直接证据", "blocks": [{"type": "list", "ordered": true, "items": ["结构清晰", "数据可复核"]}]},
+          {"type": "card", "title": "下一步", "meta": "行动", "blocks": [{"type": "callout", "text": "继续执行浏览器级测试。"}]}
+        ]}
+      ]
+    },
+    {
+      "id": "details",
+      "label": "数据明细",
+      "eyebrow": "证据",
+      "title": "活动日对比",
+      "subtitle": "数据表格",
+      "blocks": [
+        {"type": "tabs", "title": "明细索引", "tabs": [
+          {"id": "sample-table", "label": "数据表", "blocks": [{"type": "callout", "text": "表格证据"}]},
+          {"id": "sample-products", "label": "商品样本", "badge": "1", "blocks": [{"type": "callout", "text": "商品证据"}]}
+        ]},
+        {"type": "table", "title": "明细", "meta": "2 行", "columns": ["日期", "花费", "成交"], "rows": [[{"text": "08-08 商品", "image_url": "https://example.com/thumb.jpg", "alt": "表格商品缩略图"}, "600", "1,500"], ["08-09", "600", "2,100"]]},
+        {"type": "products", "columns": 1, "page_size": 1, "sort_options": [{"key": "price", "label": "价格升序", "direction": "asc"}], "items": [
+          {"title": "远程图片能力回归商品", "image_url": "https://img.alicdn.com/bao/uploaded/i4/example/O1CN01sample_!!0-item_pic.jpg", "item_url": "https://item.taobao.com/item.htm?id=123456", "alt": "回归测试商品", "price": "¥99.00", "badge": "HTTPS", "copy_value": "123456", "copy_label": "复制商品ID", "sort_values": {"price": 99}},
+          {"title": "无图片样例商品", "price": "¥59.00", "sort_values": {"price": 59}}
+        ]}
+      ]
+    },
+    {
+      "id": "method",
+      "label": "口径说明",
+      "eyebrow": "方法",
+      "title": "计算与范围",
+      "subtitle": "决策前必读",
+      "blocks": [{"type": "card", "title": "口径", "meta": "v1", "blocks": [{"type": "list", "items": ["ROAS = 成交金额 / 花费", "外部图片必须由 ViewModel 显式批准且仅支持 HTTPS"]}]}]
+    }
+  ]
+}

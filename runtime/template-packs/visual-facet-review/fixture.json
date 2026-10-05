@@ -1,0 +1,34 @@
+{
+  "contract": "visual-facet-review@1.0",
+  "meta": {
+    "title": "视觉分面分类审阅测试",
+    "subtitle": "同一商品可以出现于不同分面"
+  },
+  "shell": {
+    "brand_mark": "视",
+    "brand_title": "视觉分面分类",
+    "brand_subtitle": "图片审阅",
+    "nav_label": "分面",
+    "status": ["审阅测试"],
+    "search": false
+  },
+  "assets": {"example": {"path": "fixture-image.svg", "alt": "示例图片"}},
+  "views": [
+    {
+      "id": "body",
+      "label": "锅身轮廓",
+      "title": "锅身轮廓",
+      "blocks": [
+        {"type": "gallery", "title": "直壁深锅", "asset_ids": ["example"]}
+      ]
+    },
+    {
+      "id": "lid",
+      "label": "锅盖",
+      "title": "锅盖",
+      "blocks": [
+        {"type": "gallery", "title": "图中见锅盖", "asset_ids": ["example"]}
+      ]
+    }
+  ]
+}

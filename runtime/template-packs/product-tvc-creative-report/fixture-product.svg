@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-label="随行杯产品示意图">
+  <rect width="720" height="720" fill="#eef3f1"/>
+  <ellipse cx="350" cy="620" rx="170" ry="32" fill="#cfd9d5"/>
+  <rect x="225" y="155" width="250" height="430" rx="74" fill="#fdfdfb" stroke="#97a49f" stroke-width="8"/>
+  <rect x="250" y="115" width="200" height="85" rx="30" fill="#d6dfdc" stroke="#87958f" stroke-width="8"/>
+  <path d="M470 245 C610 235 615 475 470 465" fill="none" stroke="#97a49f" stroke-width="34" stroke-linecap="round"/>
+  <rect x="275" y="300" width="150" height="16" rx="8" fill="#315bd6" opacity=".22"/>
+</svg>

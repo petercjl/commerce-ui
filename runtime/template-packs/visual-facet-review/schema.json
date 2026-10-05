@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "visual-facet-review ViewModel",
+  "type": "object",
+  "required": ["contract", "meta", "views"],
+  "properties": {
+    "contract": {"const": "visual-facet-review@1.0"},
+    "meta": {
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "title": {"type": "string", "minLength": 1},
+        "subtitle": {"type": "string"},
+        "footer": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "shell": {
+      "type": "object",
+      "properties": {
+        "brand_mark": {"type": "string"},
+        "brand_title": {"type": "string"},
+        "brand_subtitle": {"type": "string"},
+        "nav_label": {"type": "string"},
+        "status": {"type": "array", "items": {"type": "string"}},
+        "search": {"type": "boolean"},
+        "search_placeholder": {"type": "string"},
+        "date_range": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "assets": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": {"$ref": "#/$defs/asset"}},
+        {"type": "array", "items": {"allOf": [{"$ref": "#/$defs/asset"}, {"required": ["id"]}]}}
+      ]
+    },
+    "views": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"$ref": "#/$defs/view"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "id": {"type": "string"},
+        "path": {"type": "string", "minLength": 1},
+        "alt": {"type": "string"},
+        "role": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "view": {
+      "type": "object",
+      "required": ["id", "label", "title", "blocks"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"},
+        "label": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "subtitle": {"type": "string"},
+        "blocks": {"type": "array", "items": {"$ref": "#/$defs/block"}}
+      },
+      "additionalProperties": false
+    },
+    "block": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"enum": ["text", "card", "grid", "image", "gallery", "table", "callout", "key_values"]},
+        "title": {"type": "string"},
+        "text": {"type": "string"},
+        "paragraphs": {"type": "array", "items": {"type": "string"}},
+        "asset_id": {"type": "string"},
+        "asset_ids": {"type": "array", "items": {"type": "string"}},
+        "caption": {"type": "string"},
+        "columns": {},
+        "rows": {"type": "array"},
+        "items": {"type": "array"},
+        "blocks": {"type": "array", "items": {"$ref": "#/$defs/block"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "紧凑商务工作台 UI"
+  short_description: "用系统级 commerce-ui CLI 生成并验证统一商务 HTML"
+  default_prompt: "Use $compact-commerce-ui to map my business data into the current commerce-ui ViewModel contract, render the HTML with the CLI, and validate the result."

@@ -1,0 +1,15 @@
+{
+  "pack_format": "commerce-ui-template-pack@1",
+  "id": "monthly-profit-review",
+  "contract": "monthly-profit-review@1.0",
+  "version": "1.0.8",
+  "title": "月度实际利润复盘",
+  "description": "面向全店、负责人和商品利润分析的交互式报告；负责人独立页面，商品表支持固定表头、退款后付费占比、远程缩略图、搜索、全局排序与每页50条分页。",
+  "files": {
+    "schema": "schema.json",
+    "template": "template.html",
+    "renderer": "renderer.py",
+    "validator": "validator.py",
+    "fixture": "fixture.json"
+  }
+}

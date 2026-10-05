@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://commerce-ui.local/contracts/product-tvc-analysis-report-1.0.schema.json",
+  "title": "Product TVC Analysis Report ViewModel",
+  "type": "object",
+  "required": ["contract", "meta", "views"],
+  "properties": {
+    "contract": {"const": "product-tvc-analysis-report@1.0"},
+    "meta": {
+      "type": "object",
+      "required": ["title", "revision", "status"],
+      "properties": {
+        "title": {"type": "string", "minLength": 1},
+        "subtitle": {"type": "string"},
+        "footer": {"type": "string"},
+        "revision": {"type": "integer", "minimum": 1},
+        "status": {"enum": ["blocked", "ready_for_script", "awaiting_direction_selection", "ready_for_script_review", "ready_for_directing", "superseded"]},
+        "generated_at": {"type": "string"},
+        "source_payload_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": false
+    },
+    "shell": {
+      "type": "object",
+      "properties": {
+        "brand_mark": {"type": "string"},
+        "brand_title": {"type": "string"},
+        "brand_subtitle": {"type": "string"},
+        "nav_label": {"type": "string"},
+        "status": {"type": "array", "items": {"type": "string"}},
+        "search": {"type": "boolean"},
+        "search_placeholder": {"type": "string"},
+        "date_range": {"type": "string"},
+        "search": {"type": "boolean"},
+        "search_placeholder": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "assets": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": {"$ref": "#/$defs/asset"}},
+        {"type": "array", "items": {"allOf": [{"$ref": "#/$defs/asset"}, {"required": ["id"]}]}}
+      ]
+    },
+    "views": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"$ref": "#/$defs/view"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "id": {"type": "string"},
+        "path": {"type": "string", "minLength": 1},
+        "alt": {"type": "string"},
+        "role": {"type": "string"},
+        "caption": {"type": "string"},
+        "semantic_label": {"type": "string"},
+        "subject_id": {"type": "string"},
+        "evidence_level": {"enum": ["direct", "derived", "illustrative"]}
+      },
+      "additionalProperties": true
+    },
+    "view": {
+      "type": "object",
+      "required": ["id", "label", "title", "blocks"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"},
+        "label": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "subtitle": {"type": "string"},
+        "badge": {"type": "string"},
+        "blocks": {"type": "array", "items": {"$ref": "#/$defs/block"}}
+      },
+      "additionalProperties": false
+    },
+    "block": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"enum": ["hero", "text", "card", "grid", "image", "gallery", "table", "callout", "key_values", "fact_cards", "value_map", "audiences", "scenes", "directions", "boundaries"]},
+        "title": {"type": "string"},
+        "eyebrow": {"type": "string"},
+        "subtitle": {"type": "string"},
+        "text": {"type": "string"},
+        "paragraphs": {"type": "array", "items": {"type": "string"}},
+        "asset_id": {"type": "string"},
+        "asset_ids": {"type": "array", "items": {"type": "string"}},
+        "caption": {"type": "string"},
+        "columns": {
+          "oneOf": [
+            {"type": "integer", "minimum": 1, "maximum": 4},
+            {"type": "array", "items": {"$ref": "#/$defs/tableColumn"}}
+          ]
+        },
+        "rows": {"type": "array"},
+        "items": {"type": "array"},
+        "blocks": {"type": "array", "items": {"$ref": "#/$defs/block"}},
+        "badges": {"type": "array", "items": {"type": "string"}},
+        "recommendation": {"$ref": "#/$defs/recommendation"},
+        "tone": {"enum": ["info", "positive", "warning", "danger"]}
+      },
+      "additionalProperties": false
+    },
+    "tableColumn": {
+      "type": "object",
+      "required": ["key", "label"],
+      "properties": {
+        "key": {"type": "string"},
+        "label": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "recommendation": {
+      "type": "object",
+      "required": ["label", "title", "reason"],
+      "properties": {
+        "label": {"type": "string"},
+        "title": {"type": "string"},
+        "reason": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

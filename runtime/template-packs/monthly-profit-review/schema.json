@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Monthly Profit Review ViewModel",
+  "type": "object",
+  "required": ["contract", "meta", "shop", "owners", "unowned", "products", "quality"],
+  "properties": {
+    "contract": {"const": "monthly-profit-review@1.0"},
+    "meta": {
+      "type": "object",
+      "required": ["title", "shop_name", "month", "date_range", "status", "external_images"],
+      "properties": {
+        "title": {"type": "string", "minLength": 1},
+        "shop_name": {"type": "string", "minLength": 1},
+        "month": {"type": "string", "pattern": "^\\d{4}-\\d{2}$"},
+        "date_range": {"type": "string"},
+        "status": {"type": "string"},
+        "footer": {"type": "string"},
+        "external_images": {"const": "allow_https"},
+        "source_payload_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": true
+    },
+    "shop": {"$ref": "#/$defs/summary"},
+    "payment_flow": {
+      "type": "object",
+      "required": ["all_order_original_payment", "cancelled_order_original_payment", "shipped_order_original_payment", "shipped_order_settled_refund", "net_sales", "cancelled_order_settled_refund", "cancelled_order_refund_residual"],
+      "properties": {
+        "all_order_original_payment": {"type": "number"},
+        "cancelled_order_original_payment": {"type": "number"},
+        "shipped_order_original_payment": {"type": "number"},
+        "shipped_order_settled_refund": {"type": "number"},
+        "net_sales": {"type": "number"},
+        "cancelled_order_settled_refund": {"type": "number"},
+        "cancelled_order_refund_residual": {"type": "number"}
+      },
+      "additionalProperties": false
+    },
+    "owners": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "summary", "products"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"},
+          "name": {"type": "string", "minLength": 1},
+          "summary": {"$ref": "#/$defs/summary"},
+          "products": {"type": "array", "items": {"$ref": "#/$defs/product"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "unowned": {
+      "type": "object",
+      "required": ["groups", "products"],
+      "properties": {
+        "groups": {"type": "array", "items": {"$ref": "#/$defs/summary"}},
+        "products": {"type": "array", "items": {"$ref": "#/$defs/product"}}
+      },
+      "additionalProperties": false
+    },
+    "products": {"type": "array", "items": {"$ref": "#/$defs/product"}},
+    "quality": {
+      "type": "object",
+      "required": ["items", "method"],
+      "properties": {
+        "items": {"type": "array", "items": {"type": "string"}},
+        "method": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "summary": {
+      "type": "object",
+      "required": ["name", "gross_revenue", "refund_amount", "net_sales", "goods_cost", "freight_cost", "ad_spend", "platform_fee", "tax_cost", "actual_profit", "product_count"],
+      "properties": {
+        "name": {"type": "string"},
+        "gross_revenue": {"type": "number"},
+        "refund_amount": {"type": "number"},
+        "net_sales": {"type": "number"},
+        "goods_cost": {"type": "number"},
+        "freight_cost": {"type": "number"},
+        "actual_freight_amount": {"type": "number"},
+        "estimated_freight_amount": {"type": "number"},
+        "ad_spend": {"type": "number"},
+        "platform_fee": {"type": "number"},
+        "tax_cost": {"type": "number"},
+        "actual_profit": {"type": "number"},
+        "profit_margin": {"type": ["number", "null"]},
+        "product_count": {"type": "integer", "minimum": 0},
+        "payment_flow": {"$ref": "#/properties/payment_flow"}
+      },
+      "additionalProperties": false
+    },
+    "product": {
+      "type": "object",
+      "required": ["id", "name", "owner", "all_order_original_payment", "cancelled_order_original_payment", "gross_revenue", "refund_amount", "net_sales", "goods_cost", "freight_cost", "ad_spend", "actual_profit"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "owner": {"type": "string"},
+        "cancelled_only": {"type": "boolean"},
+        "all_order_original_payment": {"type": "number"},
+        "cancelled_order_original_payment": {"type": "number"},
+        "image_url": {"type": ["string", "null"], "pattern": "^https://[^\\s\\\"'<>]+$"},
+        "gross_revenue": {"type": "number"},
+        "refund_amount": {"type": "number"},
+        "net_sales": {"type": "number"},
+        "goods_cost": {"type": "number"},
+        "freight_cost": {"type": "number"},
+        "ad_spend": {"type": "number"},
+        "post_refund_paid_ratio": {"type": ["number", "null"]},
+        "actual_profit": {"type": "number"},
+        "profit_margin": {"type": ["number", "null"]}
+      },
+      "additionalProperties": false
+    }
+  }
+}

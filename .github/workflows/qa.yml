@@ -1,0 +1,28 @@
+name: Commerce UI QA
+on: [push, pull_request, workflow_dispatch, workflow_call]
+jobs:
+  qa:
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      COMMERCE_UI_DATA_ROOT: ${{ github.workspace }}/.qa-data
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci --ignore-scripts
+      - run: python -m pip install -r requirements.txt
+      - run: npm run check
+      - run: npm test
+      - run: node bin/commerce-ui.mjs self-test
+      - run: npm pack --dry-run --json
+      - run: npm install --prefix .qa-install --ignore-scripts .
+      - run: node .qa-install/node_modules/@petercjl/commerce-ui/bin/commerce-ui.mjs skill install --target-dir .qa-skills --mode copy
+      - run: node .qa-install/node_modules/@petercjl/commerce-ui/bin/commerce-ui.mjs skill status --target-dir .qa-skills
+      - run: node .qa-install/node_modules/@petercjl/commerce-ui/bin/commerce-ui.mjs self-test

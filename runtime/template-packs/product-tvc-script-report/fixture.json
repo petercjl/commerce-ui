@@ -1,0 +1,48 @@
+{
+  "contract": "product-tvc-script-report@1.0",
+  "meta": {
+    "title": "随行杯｜15 秒 TVC 脚本",
+    "subtitle": "模板包代表性自测案例",
+    "footer": "产品 TVC 脚本规划器 · 以结构化脚本数据为准",
+    "revision": 1,
+    "status": "ready_for_assets",
+    "source_payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "shell": {
+    "brand_mark": "镜",
+    "brand_title": "TVC 脚本规划",
+    "brand_subtitle": "结构 · 镜头 · 运镜",
+    "nav_label": "脚本视图",
+    "status": ["状态：可进入资产制作", "时长：15 秒", "6 个镜头"],
+    "search": true,
+    "search_placeholder": "搜索镜头、动作、运镜"
+  },
+  "views": [
+    {
+      "id": "overview",
+      "label": "脚本总览",
+      "title": "15 秒结构总览",
+      "subtitle": "先确认节奏和产品证明，再进入资产制作。",
+      "blocks": [
+        {"type": "hero", "eyebrow": "脚本命题", "title": "一杯接住一天的变化", "subtitle": "用连续的饮品切换证明产品价值。", "badges": ["15 秒", "9:16", "使用场景型"], "recommendation": {"label": "核心钩子", "title": "同一只杯，饮品随动作改变", "reason": "产品动作清楚，适合形成短视频节奏。"}},
+        {"type": "timeline", "title": "时间轴", "items": [
+          {"start": 0, "end": 2, "label": "钩子", "summary": "普通白水的乏味瞬间"},
+          {"start": 2, "end": 11, "label": "产品证明", "summary": "茶、果饮和饮用方式切换"},
+          {"start": 11, "end": 15, "label": "收束", "summary": "产品定妆与核心主张"}
+        ]}
+      ]
+    },
+    {
+      "id": "shots",
+      "label": "镜头脚本",
+      "title": "逐镜头内容与运镜",
+      "subtitle": "每个镜头都是一个可检查的生成单元。",
+      "blocks": [
+        {"type": "shots", "items": [
+          {"shot_id": "镜头 01", "time": "0.0–2.0 秒", "title": "乏味白水", "narrative_function": "开场钩子", "visual": "人物看着一杯白水，手指轻敲桌面。", "camera": "中近景固定，末尾快速推近杯口。", "audio": "环境声与轻微敲击声。", "references": "产品身份图", "claim_status": "无广告主张"},
+          {"shot_id": "镜头 02", "time": "2.0–4.5 秒", "title": "产品进入", "narrative_function": "产品揭示", "visual": "主产品进入画面，人物翻转茶仓。", "camera": "近景横向跟随，转入结构特写。", "audio": "开盖声；旁白：今天，换种喝法。", "references": "主图、功能详情图", "claim_status": "画面表达"}
+        ]}
+      ]
+    }
+  ]
+}
